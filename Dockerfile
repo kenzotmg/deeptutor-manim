@@ -4,12 +4,14 @@ FROM ghcr.io/hkuds/deeptutor:latest
 # Muda para usuário root para instalar dependências do sistema
 USER root
 
-# Instala as dependências do sistema para Manim (LaTeX, FFmpeg, Cairo, CMake)
+# Instala as dependências do sistema para Manim
 RUN apt-get update && apt-get install -y \
-    texlive-full \
+    texlive-base \
+    texlive-latex-extra \
     ffmpeg \
     pkg-config \
     libcairo2-dev \
+    libpango1.0-dev \      # ← ADICIONADO: necessário para manimpango
     cmake \
     && rm -rf /var/lib/apt/lists/*
 
