@@ -18,5 +18,8 @@ RUN apt-get update && apt-get install -y \
 # Volta para o usuário não-root do DeepTutor
 USER deeptutor
 
-# Instala as dependências Python do Math Animator (Manim)
-RUN pip install --no-cache-dir 'deeptutor[math-animator]'
+# Cria o diretório de cache do pip com permissões corretas
+RUN mkdir -p /home/deeptutor/.cache/pip && chmod 755 /home/deeptutor/.cache/pip
+
+# Instala as dependências Python do Math Animator (Manim) com --user
+RUN pip install --user --no-cache-dir 'deeptutor[math-animator]'
