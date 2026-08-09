@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     ffmpeg \
     pkg-config \
     libcairo2-dev \
-    libpango1.0-dev \      # ← ADICIONADO: necessário para manimpango
+    libpango1.0-dev \
     cmake \
     && rm -rf /var/lib/apt/lists/*
 
